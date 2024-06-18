@@ -77,7 +77,9 @@ const App = () => {
   };
 
   const register = async () => {
-    const data = await sql`INSERT INTO acount (id, email, username) VALUES (${email}, 'Bot')`
+    if (enterCode == code) {
+      const data = await sql`INSERT INTO acount (id, email, username) VALUES (${email}, 'Bot')`
+    }
   }
 
   return (
