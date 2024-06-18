@@ -77,8 +77,14 @@ const App = () => {
   };
 
   const register = async () => {
-    if (enterCode == code) {
-      const data = await sql`INSERT INTO acount (id, email, username) VALUES (${email}, 'Bot')`
+    if (enterCode == code.toString()) {
+      const data = await sql`INSERT INTO acount (id, email, username) VALUES (${email}, 'Bot')`.then((v) => {
+        alert("You registered!")
+      }).catch((e) => {
+        alert("Something went wrong, try again later.")
+      })
+    } else {
+      alert("Not correct code try again")
     }
   }
 
